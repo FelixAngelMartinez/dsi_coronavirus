@@ -19,11 +19,11 @@
 helpsearch*/
 
 # Simulink code generation folders
-slprj/
-sccprj/
+*/slprj/
+*/sccprj/
 
 # Matlab code generation folders
-codegen/
+*/codegen/
 
 # Simulink autosave extension
 *.autosave
@@ -49,7 +49,7 @@ octave-workspace
 *.userprefs
 
 # Mono auto generated files
-mono_crash.*
+*/mono_crash.*
 
 # Build results
 [Dd]ebug/
