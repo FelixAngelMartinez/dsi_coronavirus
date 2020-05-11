@@ -1,17 +1,17 @@
-%% BORRAR GRÁFICAS MEMORIA Y CONSOLA %%
+%% BORRAR GRï¿½FICAS MEMORIA Y CONSOLA %%
 close all, clear, clc   % cerrar ventanas graficas, borrar memoria y consola
-
-%% Llamamiento a la función HistoricDataSpain() %%
+% Gestionar Directorio: path , pwd, cd
+%% Llamamiento a la funciï¿½n HistoricDataSpain() %%
 [output, name_ccaa, iso_ccaa, data_spain] = HistoricDataSpain()
 
 dia_actual = 56; %empezamos desde el dia 56, correspondiente al 15 de abril
-nSim = 7; %hacemos predicciones a 7 días vista
+nSim = 7; %hacemos predicciones a 7 dï¿½as vista
 
-for dia = 0 : 16
+for dia = 1 : 15
     %valores del vector resultado inicial, donde guardamos las predicciones
-    %del día para todas las CCAA
-    resultado = ["AcumulatedPRC", "Hospitalized", "Critical", "Deaths", "AcumulatedRecoveries"];
-    
+    %del dï¿½a para todas las CCAA
+    resultado = ["CCAA", "Fecha", "AcumulatedPRC", "Hospitalized", "Critical", "Deaths", "AcumulatedRecoveries"];
+    CCAAs=["AN", "AR", "AS", "IB", "CN", "CB", "CM", "CL", "CT", "CE", "VC", "EX", "GA", "MD", "ML", "MC", "NC", "PV", "RI"];
     %Recorremos todas las CCAA
     for i = 1 : size(output.historic,1)
         %Casos PCR
@@ -36,22 +36,18 @@ for dia = 0 : 16
         
         % Guardamos todos los resultados en Y_Pred_CCAA, y transponemos la
         % matriz resultante para guardarla en la matriz resultados
-        Y_Pred_CCAA = [YPred_PCR; YPred_Hospitalized; YPred_Critical; YPred_Deaths; YPred_AcumulatedRecoveries]';
+        for j = 1:nSim
+            Fecha(j)=output.historic{j}.label_x(dia_actual+j);
+            CCAA(j)=CCAAs(i);
+        end
+        Y_Pred_CCAA = [CCAA; Fecha; YPred_PCR; YPred_Hospitalized; YPred_Critical; YPred_Deaths; YPred_AcumulatedRecoveries]';
         resultado = [resultado;Y_Pred_CCAA];
-        sprintf('CCAA %d', i)
-         
+        sprintf('IteracciÃ³n: %d CCAA: %d', dia, i)
     end
     
     % Personalizar el nombre del fichero
-    file = "src\predicciones\MCB_FMM_" + strrep(output.historic{i}.label_x(dia_actual+dia), '-', '_') + ".csv";
-    % Guardamos el resultado de la iteración a fichero
+    file = "predicciones/MCB_FMM_" + strrep(output.historic{i}.label_x(dia_actual+dia), '-', '_') + ".csv";
+    % Guardamos el resultado de la iteraciï¿½n a fichero
     writematrix(resultado, file);
 end
 
-%output.historic{1,1}.Cases(1:56)
-
-% id_comunidad=7 % id comunidad: 7=CLM
-% name_ccaa{id_comunidad}   % nombre de comunidad
-% output.historic{id_comunidad} % estrucutura
-% y=output.historic{id_comunidad}.Cases% serie temporal de
-% plot(y) %dibuja casos activos
