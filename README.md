@@ -3,9 +3,10 @@ Proyecto para la asignatura Sistemas Inteligentes, la cual trata del desarrollo 
 
 <img src="/img/predicciones_excel.png?raw=true" width="440">
 <img src="/img/Error.png?raw=true" width="440">
+
 ## Elementos
-En dicho repositorio nos encontramos una carpeta /src la cual contiene los archivos en Matlab para ejecutar dicho algoritmo sobre los datos.
-También tenemos la carpeta /doc donde encontraremos la documentación resultante de dicho trabajo, la cual está escrita en formato ACM junto con el enunciado de la práctica. En la carpeta /img nos encontramos las imágenes más relevantes del proyecto.
+En dicho repositorio nos encontramos una carpeta src/ la cual contiene los archivos en Matlab para ejecutar dicho algoritmo sobre los datos.
+También tenemos la carpeta doc/ donde encontraremos la documentación resultante de dicho trabajo, la cual está escrita en formato ACM junto con el enunciado de la práctica. En la carpeta img/ nos encontramos las imágenes más relevantes del proyecto.
 
 ## Análisis
 Se ha realizado un análisis detallado de las variables en la documentación adjunta.
@@ -21,7 +22,7 @@ Para la ejecución de dicho proyecto es necesario tener instalado en el equipo e
 Recomendamos la ejecución en el entorno de Matlab online si no cuentas con un workstation, ya que la ejecución de todos los algorítmos puede demorar en el tiempo y hacer que se trate de un trabajo pesado.
 
 ## Memoria
-Consultar la memoria incluida dentro de la carpeta doc, la cual contiene un paper en formato ACM con toda la información de dicho trabajo y conclusiones de éste.
+Consultar la memoria incluida dentro de la carpeta doc/, la cual contiene un paper en formato ACM con toda la información de dicho trabajo y conclusiones de éste.
 
 ## Licencia:
 Proyecto bajo licencia [LICENSE](LICENSE)
