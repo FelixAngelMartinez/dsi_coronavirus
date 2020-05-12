@@ -1,6 +1,6 @@
 %% BORRAR GR�FICAS MEMORIA Y CONSOLA %%
 close all, clear, clc   % cerrar ventanas graficas, borrar memoria y consola
-% Gestionar Directorio: path , pwd, cd
+% Gestionar Directorio: path , pwd, cd, ls
 %% Llamamiento a la funci�n HistoricDataSpain() %%
 [output, name_ccaa, iso_ccaa, data_spain] = HistoricDataSpain()
 
@@ -34,12 +34,14 @@ for dia = 1 : 15
         y = output.historic{i,1}.AcumulatedRecoveries(1:dia_actual + dia);
         [YPred_AcumulatedRecoveries,dataTrainaux,YPredTotal] = LSTM(y, nSim);
         
-        % Guardamos todos los resultados en Y_Pred_CCAA, y transponemos la
-        % matriz resultante para guardarla en la matriz resultados
+        %Creacion de la columna fechas y comunidades autonomas, para
+        %posteriormente asociarla a los datos predichos
         for j = 1:nSim
-            Fecha(j)=output.historic{j}.label_x(dia_actual+j);
+            Fecha(j)=output.historic{j}.label_x(dia_actual+j+dia-1);
             CCAA(j)=CCAAs(i);
         end
+        % Guardamos todos los resultados en Y_Pred_CCAA, y transponemos la
+        % matriz resultante para guardarla en la matriz resultados
         Y_Pred_CCAA = [CCAA; Fecha; YPred_PCR; YPred_Hospitalized; YPred_Critical; YPred_Deaths; YPred_AcumulatedRecoveries]';
         resultado = [resultado;Y_Pred_CCAA];
         sprintf('Iteracción: %d CCAA: %d', dia, i)

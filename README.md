@@ -9,7 +9,8 @@ También tenemos la carpeta /doc donde encontraremos la documentación resultant
 ### Análisis de variables
 
 ## Ejecución
-Para la ejecución de dicho proyecto es necesario tener instalado en el equipo el IDE de Matlab.
+Para la ejecución de dicho proyecto es necesario tener instalado en el equipo el IDE de Matlab.< br>
+Recomendamos la ejecución en el entorno de Matlab online si no cuentas con un workstation, ya que la ejecución de todos los algorítmos puede demorar en el tiempo y hacer que se trate de un trabajo pesado.
 
 ## Memoria
 Consultar la memoria incluida dentro de la carpeta doc, la cual contiene un paper en formato ACM con toda la información de dicho trabajo y conclusiones de éste.
